@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-source "http://rubyforge.org"
+source :rubygems
 
-group :development do
-  gem "changelog"
-end
+gemspec

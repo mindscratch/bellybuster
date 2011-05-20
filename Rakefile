@@ -1,3 +1,11 @@
+require 'rspec/core/rake_task'
+
+desc "Run specs"
+RSpec::Core::RakeTask::new(:spec) do |t|
+  # nothing for now
+end
+
+
 desc "Build the gem"
 task :gem do
   sh 'gem build *.gemspec'

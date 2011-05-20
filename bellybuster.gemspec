@@ -1,4 +1,7 @@
-require File.expand_path("../lib/bellybuster/version", __FILE__)
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+
+require 'bellybuster/version'
 require 'base64'
 
 Gem::Specification.new do |s|
@@ -19,7 +22,9 @@ Gem::Specification.new do |s|
 
   s.summary = %q{Dynamic distribution and installation of packages}
   s.test_files = Dir.glob("test/**/*")
-  s.add_development_dependency(%q<rspec>, [">= 0"])
+
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'changelog'
 
   begin
     require "changelog"
