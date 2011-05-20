@@ -5,7 +5,8 @@ end
 
 desc "Regenerate contributors file."
 task :contributors do
-  authors = %x{git log | grep ^Author:}.split("\n")
+  # probably some better way to get the author name, however using just 'git log' didn't include it
+  authors = %x{git log --pretty=format:"%an"}.split("\n")
   results = authors.reduce(Hash.new) do |results, line|
     name = line.sub(/^Author: (.+) <.+>$/, '\1')
     results[name] ||= 0
