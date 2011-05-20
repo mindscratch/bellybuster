@@ -1,15 +1,18 @@
-class PackageHandler
+module BellyBuster
+  class PackageHandler
 
-  def unpack
-    puts "#{self.class}#unpack"
+    def unpack
+      puts "#{self.class}#unpack"
+    end
+
+    def install
+      puts "#{self.class}#unpack"
+    end
+
+    def uninstall
+      puts "#{self.class}#unpack"
+    end
+
+
   end
-
-  def install
-    puts "#{self.class}#unpack"
-  end
-
-  def uninstall
-    puts "#{self.class}#unpack"
-  end
-
 end

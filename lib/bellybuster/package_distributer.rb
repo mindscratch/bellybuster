@@ -1,7 +1,9 @@
-class PackageDistributer
+module BellyBuster
+  class PackageDistributer
 
-  def distribute(package)
-    puts "#{self.class}#distribute, package=#{package.inspect}"
+    def distribute(package)
+      puts "#{self.class}#distribute, package=#{package.inspect}"
+    end
+
   end
-
 end
