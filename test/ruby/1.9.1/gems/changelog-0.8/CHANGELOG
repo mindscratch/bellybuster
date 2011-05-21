@@ -1,0 +1,23 @@
+= Version 0.8
+  * Play nicely with multiple lines per item [#3].
+
+= Version 0.7
+  * Play nice with Bundler [#2].
+
+= Version 0.5
+  * Support for Ruby 1.8 (for some time!).
+
+= Version 0.5
+  * Ordering is solved by ReverseHashMixin.
+
+= Version 0.4
+  * Fixed the order, the first version is supposed to be at the bottom, not at the top.
+
+= Version 0.3
+  * CHANGELOG#last_version_changes renamed to CHANGELOG#version_changes and it takes optinal argument with version
+
+= Version 0.2
+  * Removed Ruby 1.8 compatibility since we need unordered hash from 1.9
+
+= Version 0.1
+  * Basic functionality
