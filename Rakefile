@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'bundler/setup';
 Bundler.setup(:default, :development)
 
@@ -5,6 +6,12 @@ Bundler.setup(:default, :development)
 #
 #desc "Run all RSpec tests"
 #RSpec::Core::RakeTask.new(:spec)
+=======
+require 'rspec/core/rake_task'
+
+desc "Run all RSpec tests"
+RSpec::Core::RakeTask.new(:spec)
+>>>>>>> 36652e1c5ecd66d1684c37c1e90198cb5c43aba3
 
 desc "Build the gem"
 task :gem do
