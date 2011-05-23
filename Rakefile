@@ -1,22 +1,25 @@
-<<<<<<< HEAD
-require 'bundler/setup';
-Bundler.setup(:default, :development)
+#require 'bundler/setup';
+#Bundler.setup(:default, :development)
 
-#require 'rspec/core/rake_task'
-#
-#desc "Run all RSpec tests"
-#RSpec::Core::RakeTask.new(:spec)
-=======
+require 'bundler'
+require 'rubygems/package_task'
+Bundler::GemHelper.install_tasks
+
+spec = Gem::Specification.load(Dir["*.gemspec"].first)
+Gem::PackageTask.new(spec) do |p|
+  p.need_zip = true
+  p.need_tar = true
+end
+
 require 'rspec/core/rake_task'
 
 desc "Run all RSpec tests"
 RSpec::Core::RakeTask.new(:spec)
->>>>>>> 36652e1c5ecd66d1684c37c1e90198cb5c43aba3
 
-desc "Build the gem"
-task :gem do
-  sh 'gem build *.gemspec'
-end
+#desc "Build the gem"
+#task :gem do
+#  sh 'gem build *.gemspec'
+#end
 
 desc "Regenerate contributors file."
 task :contributors do

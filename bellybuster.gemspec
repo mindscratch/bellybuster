@@ -16,14 +16,8 @@ Gem::Specification.new do |s|
   s.summary = s.description
   s.rubyforge_project = "bellybuster"
 
-<<<<<<< HEAD
-  s.add_development_dependency "rake", '~>0.9'
-  s.add_development_dependency "rspec", "~>2.0"
-=======
   s.add_development_dependency "rake"
-  s.add_development_dependency "rspec"
->>>>>>> 36652e1c5ecd66d1684c37c1e90198cb5c43aba3
-
+  s.add_development_dependency "rspec", "~>2.0"
 
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
