@@ -1,28 +1,29 @@
 module BellyBuster
-  class Package < Hash
+  module Package
+    autoload :Base, 'bellybuster/package/base_package'
+    autoload :RubyClassPackage, 'bellybuster/package/ruby_class_package'
 
-    def initialize(file, opts={})
-      raise "opts[:class] must be defined" if opts[:class].nil? or opts[:class].empty?
+    module Utils
+      # Get the Class based on the given +class_name+
+      #
+      # @param [String] class_name the fully qualified name of the class
+      # @return [Class] the reference to the class or nil if it could not be found
+      def get_class_ref(class_name)
+        klass = Kernel
+        class_name.split("::").each do |name|
+          if klass.const_defined? name
+            klass = klass.const_get(name)
+          else
+            return nil
+          end
+        end
+        klass
+      end
 
-      super()
-      self[:content] = load file
-      self[:type] = 'rb'
-      self.merge!(opts)
-    end
-
-    def class
-      self[:class]
-    end
-
-    #######
-    private
-    #######
-
-    def load(file)
-      File.open(file, 'rb') do |io|
-        io.read
+      def class_defined?(class_name)
+        return true unless self.get_class_ref(class_name).nil?
+        false
       end
     end
-
   end
 end

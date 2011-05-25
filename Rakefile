@@ -14,7 +14,9 @@ end
 require 'rspec/core/rake_task'
 
 desc "Run all RSpec tests"
-RSpec::Core::RakeTask.new(:spec)
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = ['--color']
+end
 
 #desc "Build the gem"
 #task :gem do
