@@ -1,5 +1,6 @@
 module BellyBuster
   module Package
+    autoload :Message, 'bellybuster/package/message'
     autoload :Base, 'bellybuster/package/base_package'
     autoload :RubyClassPackage, 'bellybuster/package/ruby_class_package'
 

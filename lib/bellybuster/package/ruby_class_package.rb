@@ -29,15 +29,7 @@ module BellyBuster
         false
       end
 
-      #######
-      private
-      #######
 
-      def load(file)
-        File.open(file, 'rb') do |io|
-          io.read
-        end
-      end
 
     end
   end
