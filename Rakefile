@@ -18,10 +18,6 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = ['--color']
 end
 
-#desc "Build the gem"
-#task :gem do
-#  sh 'gem build *.gemspec'
-#end
 
 desc "Regenerate contributors file."
 task :contributors do
