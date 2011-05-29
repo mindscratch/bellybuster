@@ -15,3 +15,11 @@ Why call it bellybuster?
 ========================
 
 As I walked to RailsConf 2011, I knew I needed a name and a friend said "bellybuster". Sorry, that's all there is to it.
+
+See it
+======
+
+$ cd bellybuster
+$ bundle
+$ rabbitmq-server &
+$ rspec -I spec spec/bellybuster/package_distributer_spec.rb
