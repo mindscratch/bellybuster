@@ -6,7 +6,7 @@ describe BellyBuster::PackageDistributer do
     exception_raised = false
     begin
       distributer = BellyBuster::PackageDistributer.new
-      distributer.distribute File.join(File.dirname(__FILE__), '..', 'sample_rest_client.rb')
+      distributer.distribute File.join(File.dirname(__FILE__), '..', 'sample_rest_client.rb'), 'SampleRestClient'
     rescue Exception => ex
       puts "Problem distributing: #{ex.message}"
       puts ex.backtrace.join("\n")

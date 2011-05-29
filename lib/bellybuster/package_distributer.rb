@@ -3,8 +3,8 @@ require "amqp"
 module BellyBuster
   class PackageDistributer
 
-    def distribute(file, package_type=BellyBuster::Package::RubyClassPackage)
-      message = BellyBuster::Package::Message.new load(file), package_type
+    def distribute(file_name, class_name, package_type=BellyBuster::Package::RubyClassPackage)
+      message = BellyBuster::Package::Message.new load(file_name), class_name, package_type
       over_amqp message
     end
 
@@ -24,13 +24,16 @@ module BellyBuster
         queue.subscribe do |payload|
           puts "Received a message: #{payload}. Disconnecting..."
 
-          msg = Marshal.load(payload)
+          handler = BellyBuster::PackageHandler.new
+          msg = handler.unpack payload
           puts "Message: #{msg.inspect}"
 
           #RETHINKTHIS :)...I messed up
-          pkg_class = BellyBuster::Package::Utils.get_class_ref(msg.type)
-          pkg = pkg_class.new()
-          puts "Package: #{pkg.inspect}"
+          installed = handler.install msg
+          puts "Package installed? #{installed}"
+
+          client = SampleRestClient.new
+          puts "URL from SampleRestClient: #{client.url}"
 
           connection.close {
             EM.stop { exit }
