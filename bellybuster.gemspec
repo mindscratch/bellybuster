@@ -14,11 +14,9 @@ Gem::Specification.new do |s|
   s.email = Base64.decode64 "Y3JhaWdAbWluZHNjcmF0Y2gub3Jn\n"
   s.homepage = %q{http://github.com/mindscratch/bellybuster}
   s.summary = s.description
-  s.rubyforge_project = "bellybuster"
 
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec", "~>2.0"
-  s.add_dependency "amqp", "~> 0.8.0.RC12"
 
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")

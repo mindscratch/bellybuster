@@ -1,6 +1,11 @@
-
 module BellyBuster
   class PackageHandler
+
+    def initialize(receiver)
+      raise ArgumentError, "receiver can not be null" if receiver.nil?
+      raise ArgumentError, "receiver must be of type #{BellyBuster::Transport::Receiver.name} not #{receiver}" unless receiver.is_a?(BellyBuster::Transport::Receiver)
+      @receiver = receiver
+    end
 
     # Unpack the message payload.
     #
